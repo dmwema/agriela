@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agri-Ela | Nos produits
+{% endblock %}
+
+{% block body %}
+
+	<section class="jumbotron1">
+		<div class="container">
+			<div class="texts">
+				<h1 class="title">Produits</h1>
+				<hr>
+				<p>Nous mettons à votre disposition des produits de bonne qualité pour vous satisfaire au mieux
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="mt">
+		<div class="container text-center">
+			<p>Hormis nos quatre produits principaux ci-dessous, nous en offrons d'autres, prière de
+				<a href="contact.html">nous contacter</a>
+				pour en savoir plus.
+				<br>Pour ce qui est de la vente, nous vendons au kilo, pour passer commande, n'hésitez pas de
+				<a href="contact.html">nous contacter</a>
+			</p>
+		</div>
+	</section>
+
+	<section class="contenu">
+		<div class="contproduct">
+			<div class="card mb-3">
+				<div class="row g-0">
+					<div class="col-md-6">
+						<img src="images/tomagri.jpg" class="img-fluid " alt="Tomate">
+					</div>
+					<div class="col-md-6">
+						<div class="card-body">
+							<h5 class="card-title">Tomate</h5>
+							<p class="card-text">
+								La solution naturelle pour l'élimination des mauvaises graisses. Les apports nutritionnels de la tomate sont tel que vous pouvez en consommer tous les jours sans crainte. Vous en procurer chez nous vous garantit aussi de la qualité et la bonne quantité sur votre prix.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card my-5 ">
+				<div class="row g-0 reverse-mobile">
+					<div class="col-md-6">
+						<div class="card-body">
+							<h5 class="card-title">Aubergine</h5>
+							<p class="card-text">Le légume de la santé minceur. En prévention des maladies cardiovasculaires, n'oubliez pas les aubergines dans votre cuisine. Elle limite l'accumulation ds cholestérols et réduit l'élévation de la glycémie sanguine. Nos reserves en aubergine sont toujours prêtes à répondre à vos besoins de santé.</p>
+						</div>
+					</div>
+					<div class="col-md-6 ">
+						<img src="{{ asset('images/agriaub.jpg') }}" class="img-fluid" alt="Aubergine">
+					</div>
+				</div>
+			</div>
+			<div class="card mb-3">
+				<div class="row g-0">
+					<div class="col-md-6">
+						<img src="{{ asset('images/poivjr.jpg') }}" class="img-fluid " alt="Poivron">
+					</div>
+					<div class="col-md-6">
+						<div class="card-body">
+							<h5 class="card-title">Poivron</h5>
+							<p class="card-text">La raison majeur pour laquelle vous ne devez pas vous priver de poivron, ce qu'il apporte doublement une saveur particulière à vos mets et un bien incontestable à votre santé. Vous retrouvez chez nous toutes sortes de poivron, rouge, vert ou jaunes, pour votre cuisine, vos recettes et votre régime.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card my-5 ">
+				<div class="row g-0 reverse-mobile">
+					<div class="col-md-6">
+						<div class="card-body">
+							<h5 class="card-title">Gombo</h5>
+							<p class="card-text">
+								Il comporte d'inombrable bienfaits pour la santé notament sa forte dose en vitamine C qui stimule et booste le système immunitaire en favorisant la création des globules blancs dans l'organisme. Il contribue à la formation des os et des dents grâce à son calcium et les maintient en bonne santé. Nous en avons disponibilisé en grande quantité pour vous satisfaire et vous aider à prendre soin de vous.</p>
+						</div>
+					</div>
+					<div class="col-md-6 ">
+						<img src="{{ asset('images/gomboagri.jpg') }}" class="img-fluid" alt="Gombo">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}

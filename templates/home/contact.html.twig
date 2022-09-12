@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agri-Ela | Nous contacter
+{% endblock %}
+
+{% block body %}
+
+
+	<section class="jumbotron2">
+		<div class="container">
+			<div class="texts">
+				<h1 class="title">Nous contacter</h1>
+				<hr>
+				<p>N'hesitez pas de nous contacter au numero indiqué sur chaque bas de page ou de nous laisser un message en remplissant le formulaire ci-dessous
+					<br>Nos services sont disponibles 24h/24 du lundi au dimanche pour répondre à vos differentes préocupations</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="cardc mt">
+		<div class="container">
+			<div class="content">
+				<div class="left-side">
+					<div class="address details">
+						<i class="fas fa-map-marker-alt"></i>
+						<div class="topic">Adresse</div>
+						<div class="text-one">23, avenue équateur
+							<br>Commune de la Gombe<br>
+							2ème niveau immeuble Kinshasa business center
+						</div>
+						<div class="text-two">Republique Democratique du Congo</div>
+					</div>
+					<div class="phone details">
+						<i class="fas fa-phone-alt"></i>
+						<div class="topic">Phone</div>
+						<div class="text-one">
+							<a href="tel:00243973047472">+243 973 047 472</a>
+						</div>
+					</div>
+					<div class="email details">
+						<i class="fas fa-envelope"></i>
+						<div class="topic">Email</div>
+						<div class="text-one">
+							<p>
+								<a href="mailto:contact@agriela.cd">
+									contact@agriela.cd</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="right-side">
+					<div class="topic-text">Laissez nous un message</div>
+					{% for success in app.flashes('success') %}
+						{% if success == 1 %}
+							<div class="alert alert-success alert-dismissible fade show" role="alert">
+								<strong>Succès!</strong>
+								{{ message }}
+								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							</div>
+						{% elseif success == 0 %}
+							<div class="alert alert-danger alert-dismissible fade show" role="alert">
+								<strong>Échec!</strong>
+								{{ message }}
+								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							</div>
+						{% endif %}
+					{% endfor %}
+
+					{{ form_start(create_form) }}
+					<div class="input-box">
+						{{ form_widget(create_form.names) }}
+					</div>
+					<div class="input-box">
+						{{ form_widget(create_form.email) }}
+					</div>
+					<div class="input-box message-box">
+						{{ form_widget(create_form.message) }}
+					</div>
+					<div class="button">
+						{{ form_widget(create_form.submit) }}
+					</div>
+					{{ form_end(create_form) }}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="localisation mt">
+		<div class="container">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3978.563304741357!2d15.307667114293665!3d-4.30463434757804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a6a33f453da7685%3A0x7d3548562b22cbfd!2sKinshasa%20Business%20Center!5e0!3m2!1sfr!2scd!4v1661560138176!5m2!1sfr!2scd" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		</div>
+	</section>
+
+
+{% endblock %}

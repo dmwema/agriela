@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta
+		charset="UTF-8"/>
+		<!-- Balise importante pour le support d'internet explorer -->
+		<meta
+		http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+		<!-- Balise importante pour une bonne affichage sur mobile -->
+		<meta
+		name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+		<!-- Importation de fontawesome pour les icones -->
+		<link
+		rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+		<!-- Importation de bootstrap -->
+		<link rel="stylesheet" href="{{ asset("bootstrap/styles.css") }}"/>
+		<link rel="stylesheet" href="{{ asset("css/styles.css") }}"/>
+		<link rel="stylesheet" href="{{ asset("css/style2.css") }}"/>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+		<title>
+			{% block title %}Agri-Ela!
+			{% endblock %}
+		</title>
+	</head>
+	<body>
+		<main>
+			<nav class="navbar fixed navbar-expand-lg navbar-light">
+				<div class="container">
+					<a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo agri-ela"/></a>
+					<button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="toggler-icon top-bar"></span>
+						<span class="toggler-icon middle-bar"></span>
+						<span class="toggler-icon bottom-bar"></span>
+					</button>
+
+					<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+						<ul class="navbar-nav mr-auto">
+							<li class="nav-item {% if app.request.get('_route') == 'app_home' %} active {% endif %}">
+								<a class="nav-link" href="/">Accueil</a>
+							</li>
+							<li class="nav-item {% if app.request.get('_route') == 'app_about' %} active {% endif %}">
+								<a class="nav-link" href="/apropos">A propos</a>
+							</li>
+							<li class="nav-item {% if app.request.get('_route') == 'app_prod' %} active {% endif %}">
+								<a class="nav-link" href="/produits">Produits</a>
+							</li>
+							<li class="nav-item {% if app.request.get('_route') == 'app_services' %} active {% endif %}">
+								<a class="nav-link" href="/services">Services</a>
+							</li>
+							<li class="nav-item {% if app.request.get('_route') == 'app_contact' %} active {% endif %}">
+								<a class="nav-link" href="/contact">Nous contacter</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+			{% block body %}{% endblock %}
+
+
+			<section class="mt footer">
+				<div class="container">
+					<div class="links">
+						<ul>
+							<li class="nav-item active">
+								<a href="index.html">Accueil</a>
+							</li>
+							<li>
+								<a href="apropos.html">A propos</a>
+							</li>
+							<li>
+								<a href="produits.html">Produits</a>
+							</li>
+							<li>
+								<a href="services.html">Services</a>
+							</li>
+							<li>
+								<a href="contact.html">Nous contacter</a>
+							</li>
+						</ul>
+					</div>
+					<div class="time">
+						<h6>24h/24</h6>
+						<h6>7Jrs/7</h6>
+					</div>
+					<div class="contacts">
+						<div class="phones">
+							<p>
+								<a href="tel:00243973047472">+243 973 047 472</a>
+							</p>
+							<p>
+								<a href="mailto:contact@agriela.cd">
+									contact@agriela.cd</a>
+							</p>
+						</div>
+						<div class="address">
+							<p>23, avenue équateur</p>
+							<p>commune de la Gombe</p>
+							<p>2ème niveau immeuble Kinshasa business center</p>
+							<p>Republique Democratique du Congo</p>
+						</div>
+					</div>
+					<div class="logApp">
+						<a href="https://web.facebook.com/agriela-104341898668059">
+							<i class="fa-brands fa-facebook-f"></i>
+						</a>
+						<a href="https://wa.me/243973047472/?text=Bienvenu%20chez%20AgriEla.%20Faites%20nous%part%20de%20votre%20preocupation">
+							<i class="fa-brands fa-whatsapp"></i>
+						</a>
+						<a href="https://www.instagram.com/agri_ela/?hl=fr">
+							<i class="fa-brands fa-instagram"></i>
+						</a>
+						<a href="https://twitter.com/Agriela33">
+							<i class="fa-brands fa-twitter"></i>
+						</a>
+					</div>
+
+				</div>
+				<div class="copy">
+					<p>
+						&copy; Agri-Ela 2022 | Tous droits reservés
+					</p>
+				</div>
+			</section>
+		</main>
+		<script src="bootstrap/bootstrap.bundle.min.js"></script>
+	</body>
+</html>

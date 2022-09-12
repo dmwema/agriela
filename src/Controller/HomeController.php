@@ -1,0 +1,72 @@
+<?php
+
+namespace App\Controller;
+
+use Doctrine\DBAL\Types\TextType;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType as TypeTextType;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+class HomeController extends AbstractController
+{
+    #[Route('/', name: 'app_home')]
+    public function index(): Response
+    {
+        return $this->render('home/index.html.twig');
+    }
+
+    #[Route('/apropos', name: 'app_about')]
+    public function about(): Response
+    {
+        return $this->render('home/about.html.twig');
+    }
+
+    #[Route('/produits', name: 'app_prod')]
+    public function products(): Response
+    {
+        return $this->render('home/products.html.twig');
+    }
+
+    #[Route('/services', name: 'app_services')]
+    public function services(): Response
+    {
+        return $this->render('home/services.html.twig');
+    }
+
+    #[Route('/contact', name: 'app_contact')]
+    public function contact(Request $request, EntityManagerInterface $em, ManagerRegistry $doctrine): Response
+    {
+        $create_form = $this->createFormBuilder()
+            ->add('names', TypeTextType::class, ['attr' => ['class' => 'form-control', 'placeholder' => 'Entrez votre nom complet'], 'label' => false])
+            ->add('email', TypeTextType::class, ['attr' => ['class' => 'form-control', 'placeholder' => 'Entrez votre adresse email'], 'label' => false])
+            ->add('message', TextareaType::class, ['attr' => ['class' => 'form-control', 'placeholder' => 'Entrez le message'], 'label' => false])
+            ->add('submit', SubmitType::class, ['attr' => ['class' => 'btn btn-primary',], 'label' => 'Envoyer'])
+            ->setMethod('POST')
+            ->getForm();
+
+        $create_form->handleRequest($request);
+        $message = "";
+
+
+        if ($create_form->isSubmitted() && $create_form->isValid()) {
+            $datas = $create_form->getData();
+
+            $message = "Message envoyé avec succès";
+
+            $this->addFlash('success', 1);
+        }
+
+
+        return $this->render('home/contact.html.twig', [
+            'controller_name' => 'WelcomeController',
+            'create_form' => $create_form->createView(),
+            'message' => $message
+        ]);
+    }
+}

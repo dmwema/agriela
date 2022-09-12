@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agri-Ela | Nos services
+{% endblock %}
+
+{% block body %}
+
+	<section class="jumbotron4">
+		<div class="container">
+			<div class="texts">
+				<h1 class="title">Services</h1>
+				<hr>
+				<p>Nos services sont divers et variés en fonction des besoins des consommateurs. Nous restons très attentifs afin d'adapter chaque situation au contexte et proposer des services sur mesure.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="mt">
+		<div class="container text-center">
+			<p>Chez Agri-Ela, nous ne cherchons pas uniquement à vous vendre des produits de qualité superieure. Nous nous engageons également à travailler avec vous et à vous aider pour que votre activité puisse tirer parti de tous les avantages de nos offres.
+				<br>Notre éventail de services de conseil et support technique est conçu pour vous aider à mettre sur pied vos idées</p>
+		</div>
+	</section>
+
+	<section class="cards">
+		<div class="container">
+			<h3 class="text-center mb-3">Nous offrons les services ci-après</h3>
+			<div class="serv row">
+				<div class="col-md-8">
+					<div class="row-mb3">
+						<div class="card meka">
+							<h3 class="title">Vente des aliments frais et sains</h3>
+							<p>
+								Sur le marché congolais depuis plusieurs années déjà, Agri-Ela fournit à sa clientèle variée des légumes fruits, de la viande et du poisson frais, grâce à ses activités qui sont le fruit d'un travail minutieux et acharné de toute l'équipe des travailleurs. S'assurer de la qualité de ce qui est mis sur le marché est notre credo, afin de garantir et de fideliser nos clients.</p>
+						</div>
+					</div>
+					<div class="row-mb3">
+						<div class="card meka">
+							<h3 class="title">Formation</h3>
+							<p>
+								Une formation complète sur la production et la transformation des cultures maraîchères, l'élaboration et l'exécution d'un projet d'élevage et l'installation d'un site aquacole, tant par des moyens artisanaux qu'industriels. Agri-Ela met à la disposition des volontaires une connaissance acquise auprès des formateurs congolais et internationaux au bénéfice de toute sa communauté.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="card">
+						<h3 class="title">Accompagnement</h3>
+						<p>
+							Agri-Ela se propose d'accompagner et encadrer les passionnés du secteur agricole, aquacole et d'élevage, dans l'élaboration de leur projet, l'exécution et le suivi du projet, jusqu'à la récolte, afin de maximiser les productions issues des terres congolaises. L'accompagnement peut se faire en présentiel par des descentes régulière sur terrain, soit à distance pour ceux de la diaspora désireux d'investir au pays. Un accompagnement total par une équipe expérimentée avec des ingénieurs agronomes et managers.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="sects2 mt-5">
+		<div class="container">
+			<div class="titrecar text-center">
+				<h3>Ce que nous faisons</h3>
+				<p>
+					Voici en images quelques unes de nos réalisations</p>
+			</div>
+			<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="{{ asset('images/eco3.jpg') }}" class="d-block w-100" alt="...">
+					</div>
+					<div class="carousel-item">
+						<img src="{{ asset('images/car1.jpg') }}" class="d-block w-100" alt="...">
+					</div>
+					<div class="carousel-item">
+						<img src="{{ asset('images/car2.jpg') }}" class="d-block w-100" alt="...">
+					</div>
+					<div class="carousel-item active">
+						<img src="{{ asset('images/car3.jpg') }}" class="d-block w-100" alt="...">
+					</div>
+					<div class="carousel-item">
+						<img src="{{ asset('images/car4.jpg') }}" class="d-block w-100" alt="...">
+					</div>
+					<div class="carousel-item">
+						<img src="{{ asset('images/car5.jpg') }}" class="d-block w-100" alt="...">
+					</div>
+					<div class="carousel-item">
+						<img src="{{ asset('images/car7.jpg') }}" class="d-block w-100" alt="...">
+					</div>
+				</div>
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}
