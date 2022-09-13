@@ -83,8 +83,15 @@
     justify-content: center;
   }
 
-  .contenu .card{
-    background-color: rgb(233, 227, 227);
+  .contenu .card .row{
+    align-items: center;
+  }
+
+  .contenu .card .row .col-md-6{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
   }
 
   .contenu .card img{

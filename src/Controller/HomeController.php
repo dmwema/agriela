@@ -11,6 +11,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType as TypeTextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
@@ -40,7 +42,7 @@ class HomeController extends AbstractController
     }
 
     #[Route('/contact', name: 'app_contact')]
-    public function contact(Request $request, EntityManagerInterface $em, ManagerRegistry $doctrine): Response
+    public function contact(Request $request, EntityManagerInterface $em, ManagerRegistry $doctrine, MailerInterface $mailer): Response
     {
         $create_form = $this->createFormBuilder()
             ->add('names', TypeTextType::class, ['attr' => ['class' => 'form-control', 'placeholder' => 'Entrez votre nom complet'], 'label' => false])
@@ -56,6 +58,16 @@ class HomeController extends AbstractController
 
         if ($create_form->isSubmitted() && $create_form->isValid()) {
             $datas = $create_form->getData();
+
+            //send file mail
+            $email = (new Email())
+                ->from('contact@agri-ela.com')
+                ->to('contact@agri-ela.com')
+                ->subject("Message provenant du formulaire de contact")
+                ->text('Sending emails is fun again!');
+
+            // $mailer->send($email);
+
 
             $message = "Message envoyé avec succès";
 
