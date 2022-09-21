@@ -44,13 +44,7 @@ class HomeController extends AbstractController
     #[Route('/contact', name: 'app_contact')]
     public function contact(Request $request, EntityManagerInterface $em, ManagerRegistry $doctrine, MailerInterface $mailer): Response
     {
-        $create_form = $this->createFormBuilder()
-            ->add('names', TypeTextType::class, ['attr' => ['class' => 'form-control', 'placeholder' => 'Entrez votre nom complet'], 'label' => false])
-            ->add('email', TypeTextType::class, ['attr' => ['class' => 'form-control', 'placeholder' => 'Entrez votre adresse email'], 'label' => false])
-            ->add('message', TextareaType::class, ['attr' => ['class' => 'form-control', 'placeholder' => 'Entrez le message'], 'label' => false])
-            ->add('submit', SubmitType::class, ['attr' => ['class' => 'btn btn-primary',], 'label' => 'Envoyer'])
-            ->setMethod('POST')
-            ->getForm();
+        $create_form = self::create_contact_form($this);
 
         $create_form->handleRequest($request);
         $message = "";
@@ -71,14 +65,35 @@ class HomeController extends AbstractController
 
             $message = "Message envoyé avec succès";
 
+            $newcreate_form = self::create_contact_form($this);
+
             $this->addFlash('success', 1);
+
+            return $this->render('home/contact.html.twig', [
+                'controller_name' => 'WelcomeController',
+                'create_form' => $newcreate_form->createView(),
+                'message' => $message,
+                //'message' => ""
+            ]);
         }
 
 
         return $this->render('home/contact.html.twig', [
             'controller_name' => 'WelcomeController',
             'create_form' => $create_form->createView(),
-            'message' => $message
+            'message' => $message,
+            //'message' => ""
         ]);
+    }
+
+    static function create_contact_form($me)
+    {
+        return $me->createFormBuilder()
+            ->add('names', TypeTextType::class, ['attr' => ['class' => 'form-control', 'placeholder' => 'Entrez votre nom complet'], 'label' => false])
+            ->add('email', TypeTextType::class, ['attr' => ['class' => 'form-control', 'placeholder' => 'Entrez votre adresse email'], 'label' => false])
+            ->add('message', TextareaType::class, ['attr' => ['class' => 'form-control', 'placeholder' => 'Entrez le message'], 'label' => false])
+            ->add('submit', SubmitType::class, ['attr' => ['class' => 'btn btn-primary',], 'label' => 'Envoyer'])
+            ->setMethod('POST')
+            ->getForm();
     }
 }

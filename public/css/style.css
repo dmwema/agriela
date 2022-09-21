@@ -325,6 +325,17 @@ section.products {
   .cards .row .col-md-6 {
     width: 100%;
   }
+
+
+  .grid-mobile {
+    display: grid;
+  }  
+  .mobile-column-1 {
+    grid-row: 1;
+  }
+  .mobile-column-2 {
+    grid-row: 2;
+  }
 }
 
 @media only screen and (max-width: 1199px){

@@ -17,7 +17,7 @@
 
 		<!-- Importation de bootstrap -->
 		<link rel="stylesheet" href="{{ asset("bootstrap/styles.css") }}"/>
-		<link rel="stylesheet" href="{{ asset("css/styles.css") }}"/>
+		<link rel="stylesheet" href="{{ asset("css/style.css") }}"/>
 		<link rel="stylesheet" href="{{ asset("css/style3.css") }}"/>
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +33,7 @@
 		<main>
 			<nav class="navbar fixed navbar-expand-lg navbar-light">
 				<div class="container">
-					<a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo agri-ela"/></a>
+					<a class="navbar-brand" href="/"><img src="images/logo.png" alt="logo agri-ela"/></a>
 					<button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="toggler-icon top-bar"></span>
 						<span class="toggler-icon middle-bar"></span>
@@ -70,19 +70,19 @@
 					<div class="links">
 						<ul>
 							<li class="nav-item active">
-								<a href="index.html">Accueil</a>
+								<a href="/">Accueil</a>
 							</li>
 							<li>
-								<a href="apropos.html">A propos</a>
+								<a href="{{ path('app_about') }}">A propos</a>
 							</li>
 							<li>
-								<a href="produits.html">Produits</a>
+								<a href="{{ path('app_prod') }}">Produits</a>
 							</li>
 							<li>
-								<a href="services.html">Services</a>
+								<a href="{{ path('app_services') }}">Services</a>
 							</li>
 							<li>
-								<a href="contact.html">Nous contacter</a>
+								<a href="{{ path('app_contact') }}">Nous contacter</a>
 							</li>
 						</ul>
 					</div>
@@ -97,7 +97,7 @@
 							</p>
 							<p>
 								<a href="mailto:contact@agriela.cd">
-									contact@agriela.cd</a>
+									contact@agri-ela.com</a>
 							</p>
 						</div>
 						<div class="address">
@@ -111,7 +111,7 @@
 						<a href="https://web.facebook.com/agriela-104341898668059">
 							<i class="fa-brands fa-facebook-f"></i>
 						</a>
-						<a href="https://wa.me/243973047472/?text=Bienvenu%20chez%20AgriEla.%20Faites%20nous%part%20de%20votre%20preocupation">
+						<a href="https://wa.me/243973047472/?text=">
 							<i class="fa-brands fa-whatsapp"></i>
 						</a>
 						<a href="https://www.instagram.com/agri_ela/?hl=fr">
